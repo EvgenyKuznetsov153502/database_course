@@ -31,6 +31,7 @@ ___
     * Каждое действие пользователя записывается
 14.	**Система ролей:**
     * Разделение на администратора и клиента 
-
-
+___
+## Схема модели БД
+![Database model diagram](https://github.com/EvgenyKuznetsov153502/database_course/blob/main/Database%20model%20diagram.png)
 
