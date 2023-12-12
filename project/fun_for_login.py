@@ -87,5 +87,8 @@ def authenticate_admin():
             print("Авторизация успешна.")
             return True
         else:
-            print("Неверные учетные данные.")
+            print("Неверный пароль.")
             return False
+    else:
+        print("Неверные учетные данные.")
+        return False

@@ -1,7 +1,7 @@
-import bcrypt
 from print_info import *
 from main import connection, cursor
 from fun_for_login import register_user, authenticate_user, authenticate_admin
+from admin_panel import admin_select
 
 user_login = None
 
@@ -45,8 +45,8 @@ def login_fun():
             case '3':
                 print("Вход в админку:")
                 if authenticate_admin():
-
-                    break
+                    admin_select()
+                    return "end"
             case '4':
                 print("Программа завершена")
                 return "end"
