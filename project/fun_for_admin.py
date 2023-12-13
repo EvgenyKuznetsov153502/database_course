@@ -471,6 +471,44 @@ def view_all_logs():
         print(f"Ошибка при чтении логов: {e}")
 
 
+def view_all_reviews():
+    try:
+        cursor.execute("""
+            SELECT id, description, mark, book_id, customer_id
+            FROM Reviews
+        """)
+        reviews = cursor.fetchall()
+
+        for review in reviews:
+            print(f"ID: {review[0]}, Описание: {review[1]}, Оценка: {review[2]}, ID Книги: {review[3]}, ID Клиента: {review[4]}")
+    except Exception as e:
+        print(f"Ошибка при чтении отзывов: {e}")
+
+
+def delete_review():
+    try:
+        review_id = int(validate_input("Введит id: "))
+    except:
+        print("Ошибка удаления")
+        return
+    try:
+        cursor.execute("SELECT * FROM Reviews WHERE id = %s", (review_id,))
+        existing_review = cursor.fetchone()
+
+        if existing_review:
+            cursor.execute("""
+                DELETE FROM Reviews 
+                WHERE id = %s
+            """, (review_id,))
+            connection.commit()
+            print("Отзыв успешно удален.")
+        else:
+            print("Отзыв не найден.")
+    except Exception as e:
+        print(f"Ошибка при удалении отзыва: {e}")
+
+
+
 
 
 

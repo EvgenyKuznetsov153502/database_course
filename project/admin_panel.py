@@ -1,8 +1,8 @@
-from print_info import print_main_menu_admin, print_actions
+from print_info import print_main_menu_admin, print_actions, print_actions_rew
 from fun_for_admin import view_all_promotions, add_promotion, edit_promotion, delete_promotion,\
     view_all_books, edit_book, add_book, delete_book, view_all_publishers, delete_publisher,\
     edit_publisher, add_publisher, view_all_genres, delete_genre, edit_genre, add_genre,\
-    delete_author, edit_author, add_author, view_all_authors, view_all_logs
+    delete_author, edit_author, add_author, view_all_authors, view_all_logs, view_all_reviews, delete_review
 
 
 def admin_select():
@@ -32,6 +32,9 @@ def admin_select():
                 print("Логгирование:")
                 view_all_logs()
             case '7':
+                print("Отзывы:")
+                admin_rew()
+            case '8':
                 print("Программа завершена")
                 break
             case _:
@@ -151,5 +154,23 @@ def admin_authors():
                 break
             case _:
                 print('Неверный ввод. Повторите попытку!')
+
+
+def admin_rew():
+    while True:
+        print_actions_rew()
+        action = input("Выберите действие: ")
+        match action:
+            case '1':
+                print("Просмотр отзывов:")
+                view_all_reviews()
+            case '2':
+                print("Удаление отзыва:")
+                delete_review()
+            case '3':
+                break
+            case _:
+                print('Неверный ввод. Повторите попытку!')
+
 
 
