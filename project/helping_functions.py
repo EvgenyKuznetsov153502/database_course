@@ -61,7 +61,6 @@ def login_fun():
             case '2':
                 print("Регистрация:")
                 register_user()
-                break
             case '3':
                 print("Вход в админку:")
                 if authenticate_admin():
